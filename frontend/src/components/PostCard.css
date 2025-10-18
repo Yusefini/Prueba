@@ -1,0 +1,161 @@
+.post-card {
+  margin-bottom: 20px;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.post-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.post-user img {
+  width: 48px;
+  height: 48px;
+  border: 2px solid #000;
+  image-rendering: pixelated;
+}
+
+.post-username {
+  font-weight: bold;
+  color: var(--minecraft-brown);
+  text-decoration: none;
+  display: block;
+}
+
+.post-username:hover {
+  color: var(--minecraft-grass);
+}
+
+.post-minecraft {
+  font-size: 14px;
+  color: #666;
+}
+
+.post-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.post-category {
+  background: var(--minecraft-grass);
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border: 2px solid #000;
+}
+
+.post-time {
+  font-size: 12px;
+  color: #666;
+}
+
+.post-content {
+  margin-bottom: 15px;
+}
+
+.post-content p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+
+.post-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border: 3px solid #000;
+  margin-top: 10px;
+}
+
+.post-actions {
+  display: flex;
+  gap: 10px;
+  padding-top: 15px;
+  border-top: 2px solid #eee;
+}
+
+.action-btn {
+  background: transparent;
+  border: 2px solid #ddd;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  border-color: var(--minecraft-grass);
+  background: rgba(127, 200, 0, 0.1);
+}
+
+.action-btn.liked {
+  background: #ffebee;
+  border-color: #f44336;
+  color: #f44336;
+}
+
+.delete-btn:hover {
+  border-color: #f44336;
+  background: #ffebee;
+}
+
+.comments-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #eee;
+}
+
+.comment-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.comment-form input {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.comment {
+  background: #f5f5f5;
+  padding: 10px;
+  border-left: 3px solid var(--minecraft-grass);
+}
+
+.comment-username {
+  font-weight: bold;
+  color: var(--minecraft-brown);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.comment-username:hover {
+  color: var(--minecraft-grass);
+}
+
+.comment p {
+  margin: 5px 0;
+  color: var(--text-dark);
+}
+
+.comment-time {
+  font-size: 12px;
+  color: #666;
+}

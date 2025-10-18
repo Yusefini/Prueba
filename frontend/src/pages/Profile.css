@@ -1,0 +1,73 @@
+.profile-header {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.profile-avatar img {
+  width: 150px;
+  height: 150px;
+  border: 4px solid #000;
+  image-rendering: pixelated;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-info h1 {
+  color: var(--minecraft-brown);
+  margin-bottom: 10px;
+  font-size: 32px;
+}
+
+.minecraft-username {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.profile-bio {
+  margin: 15px 0;
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+
+.profile-stats {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.edit-form {
+  margin-top: 20px;
+}
+
+.edit-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.profile-posts h2 {
+  color: var(--minecraft-brown);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-stats {
+    justify-content: center;
+  }
+}

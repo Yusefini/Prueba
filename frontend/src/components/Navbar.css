@@ -1,0 +1,48 @@
+.navbar {
+  background: var(--minecraft-brown);
+  border-bottom: 4px solid var(--minecraft-dark-brown);
+  padding: 15px 0;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-light);
+  text-decoration: none;
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.nav-brand:hover {
+  color: var(--minecraft-green);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--minecraft-green);
+  border: 2px solid var(--minecraft-green);
+}

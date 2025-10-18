@@ -1,0 +1,19 @@
+.create-post h3 {
+  color: var(--minecraft-brown);
+  margin-bottom: 15px;
+}
+
+.create-post form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-post textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.create-post button {
+  align-self: flex-end;
+}
