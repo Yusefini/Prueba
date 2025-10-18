@@ -1,0 +1,16 @@
+<% const pageTitle = 'Sign up'; %>
+<%- include('partials/_top', { title: pageTitle }) %>
+<section class="auth">
+  <h2>Create your account</h2>
+  <% if (typeof error !== 'undefined') { %>
+    <div class="flash error"><%= error %></div>
+  <% } %>
+  <form method="post" action="/auth/signup">
+    <label>Username <input name="username" required/></label>
+    <label>Password <input type="password" name="password" required/></label>
+    <label> Minecraft username (optional) <input name="minecraftUsername"/></label>
+    <button class="primary">Create account</button>
+  </form>
+  <p>Have an account? <a href="/auth/login">Login</a></p>
+</section>
+<%- include('partials/_bottom') %>

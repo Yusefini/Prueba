@@ -1,0 +1,15 @@
+<% const pageTitle = 'Login'; %>
+<%- include('partials/_top', { title: pageTitle }) %>
+<section class="auth">
+  <h2>Login</h2>
+  <% if (typeof error !== 'undefined') { %>
+    <div class="flash error"><%= error %></div>
+  <% } %>
+  <form method="post" action="/auth/login">
+    <label>Username <input name="username" required/></label>
+    <label>Password <input type="password" name="password" required/></label>
+    <button class="primary">Login</button>
+  </form>
+  <p>No account? <a href="/auth/signup">Sign up</a></p>
+</section>
+<%- include('partials/_bottom') %>

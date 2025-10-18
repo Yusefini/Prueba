@@ -1,0 +1,39 @@
+<% const pageTitle = 'Home'; %>
+<%- include('partials/_top', { title: pageTitle }) %>
+<section class="composer">
+  <% if (user) { %>
+    <form method="post" action="/posts">
+      <textarea name="content" rows="3" maxlength="500" placeholder="Share something from your Minecraft adventures..."></textarea>
+      <div class="composer-actions">
+        <button class="primary">Post</button>
+      </div>
+    </form>
+  <% } else { %>
+    <div class="auth-cta">
+      <a class="primary" href="/auth/signup">Create an account</a>
+      <a href="/auth/login">Log in</a>
+    </div>
+  <% } %>
+</section>
+
+<section class="feed">
+  <% (posts || []).forEach(p => { %>
+    <article class="post">
+      <div class="avatar">
+        <% if (p.avatarUrl) { %>
+          <img src="<%= p.avatarUrl %>" alt="avatar"/>
+        <% } else { %>
+          <div class="avatar-placeholder"></div>
+        <% } %>
+      </div>
+      <div class="post-body">
+        <header>
+          <a href="/users/<%= p.username %>" class="author"><%= p.username %></a>
+          <time datetime="<%= new Date(p.createdAt).toISOString() %>"><%= new Date(p.createdAt).toLocaleString() %></time>
+        </header>
+        <p><%= p.content %></p>
+      </div>
+    </article>
+  <% }) %>
+</section>
+<%- include('partials/_bottom') %>

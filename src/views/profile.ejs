@@ -1,0 +1,32 @@
+<% const pageTitle = profile.username; %>
+<%- include('partials/_top', { title: pageTitle }) %>
+<section class="profile">
+  <header class="profile-header">
+    <% if (avatarUrl) { %>
+      <img class="profile-avatar" src="<%= avatarUrl %>" alt="avatar"/>
+    <% } %>
+    <div>
+      <h2><%= profile.username %></h2>
+      <% if (profile.mc) { %>
+        <div class="mc">Minecraft: <strong><%= profile.mc.username %></strong></div>
+      <% } %>
+    </div>
+  </header>
+  <% if (user && user.id !== profile.id) { %>
+    <form method="post" action="/users/<%= profile.username %>/<%= following ? 'unfollow' : 'follow' %>">
+      <button class="primary"><%= following ? 'Unfollow' : 'Follow' %></button>
+    </form>
+  <% } %>
+
+  <section class="feed">
+    <% posts.forEach(p => { %>
+      <article class="post">
+        <header>
+          <time datetime="<%= new Date(p.createdAt).toISOString() %>"><%= new Date(p.createdAt).toLocaleString() %></time>
+        </header>
+        <p><%= p.content %></p>
+      </article>
+    <% }) %>
+  </section>
+</section>
+<%- include('partials/_bottom') %>

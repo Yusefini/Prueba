@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title><%= title || 'Minecraft Social' %></title>
+  <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/">Minecraft Social</a>
+    <nav>
+      <% if (user) { %>
+        <span class="user">Hi, <a href="/users/<%= user.username %>"><%= user.username %></a></span>
+        <form method="post" action="/auth/logout" style="display:inline"><button>Logout</button></form>
+      <% } else { %>
+        <a href="/auth/login">Login</a>
+        <a class="primary" href="/auth/signup">Sign up</a>
+      <% } %>
+    </nav>
+  </header>
+  <main>
+    <% if (error) { %>
+      <div class="flash error"><%= error %></div>
+    <% } %>
+    <%- body %>
+  </main>
+</body>
+</html>
