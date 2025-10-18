@@ -1,0 +1,19 @@
+{
+  "name": "minecraft-social-network",
+  "version": "1.0.0",
+  "description": "A social network platform for Minecraft players",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "keywords": ["minecraft", "social-network", "gaming"],
+  "author": "Minecraft Social Network",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
