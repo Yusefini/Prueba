@@ -1,0 +1,80 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: minecraft_social_db
+    environment:
+      POSTGRES_DB: minecraft_social
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - minecraft_social_network
+
+  # Backend API
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: minecraft_social_backend
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/minecraft_social?schema=public
+      - JWT_SECRET=your-super-secret-jwt-key-here-change-in-production
+      - JWT_EXPIRES_IN=7d
+      - PORT=5000
+      - CLOUDINARY_CLOUD_NAME=demo
+      - CLOUDINARY_API_KEY=demo
+      - CLOUDINARY_API_SECRET=demo
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+    networks:
+      - minecraft_social_network
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+
+  # Frontend React App
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: minecraft_social_frontend
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000/api
+      - REACT_APP_SOCKET_URL=http://localhost:5000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - minecraft_social_network
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+
+  # Redis for caching and sessions (optional)
+  redis:
+    image: redis:7-alpine
+    container_name: minecraft_social_redis
+    ports:
+      - "6379:6379"
+    networks:
+      - minecraft_social_network
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  minecraft_social_network:
+    driver: bridge
